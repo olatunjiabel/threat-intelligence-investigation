@@ -1,85 +1,199 @@
-# Cyber Threat Intelligence Investigation
+# Cyber Threat Intelligence Investigation Brief
 
-Threat intelligence assessment of the cyber threat landscape associated with the United States using OpenCTI, AlienVault OTX, and MITRE ATT&CK.
+## 1. Investigation Overview
 
-## Investigation Overview
+### Organization
 
-Fadurel Technologies is a technology-sector organization headquartered in the United States.
+**Organization:** Fadurel Technologies  
+**Sector:** Technology  
+**Headquarters:** United States of America
 
-As part of a Cyber Threat Intelligence assessment, an analyst was tasked with assessing the threat landscape associated with the organization's headquarters country and identifying threats that may be relevant to the organization.
+### Organization Description
 
-OpenCTI was used as the primary intelligence platform to investigate the available threat intelligence, identify the leading threats associated with the United States, and conduct deeper analysis of selected threats.
+Fadurel Technologies is a global technology company that provides services across areas including:
 
-The investigation focused on threat behavior, associated indicators, campaigns, threat groups, malware, and MITRE ATT&CK attack patterns.
+- Cloud computing
+- Digital streaming
+- Advertising
+- Artificial intelligence
+- Logistics services
 
-## Intelligence Requirement
+---
 
-Determine the top two threats associated with the country where Fadurel Technologies is headquartered, and assess each threat's behavior, associated indicators, relevant campaigns, groups, malware, and attack patterns.
-The investigation uses OpenCTI's available intelligence as the basis for identifying and prioritizing threats. The resulting threat ranking represents the intelligence observed in OpenCTI during the investigation and should be treated as an intelligence snapshot rather than a definitive ranking of all cyber threats affecting the United States.
+## 2. Analyst Role
 
-## Investigation Objectives
+**Role:** Cyber Threat Intelligence Analyst
+
+The analyst is responsible for conducting a threat intelligence assessment of the cyber threat landscape relevant to Fadurel Technologies and its operating environment.
+
+The assessment focuses on identifying Active threats associated with the country in which the organization is headquartered and developing intelligence that can support an understanding of the organization's potential threat exposure and help in proactive threat hunting and detection engineering of their infrastructure.
+
+---
+
+## 3. Investigation Scenario
+
+Fadurel Technologies has authorized a Cyber Threat Intelligence assessment of the national threat landscape associated with the country where their organization is headquartered.
+
+Because Fadurel Technologies is headquartered in the United States, the investigation focuses on the cyber threat landscape associated with the United States.
+
+The assessment uses OpenCTI as the primary intelligence platform to identify, investigate, and correlate available threat intelligence.
+
+The investigation will begin with a broad assessment of the United States threat landscape before narrowing the analysis to the two leading threats identified within the available intelligence.
+
+---
+
+## 4. Intelligence Requirement
+
+The primary intelligence requirement for this investigation is:
+
+> **Identify the top two threats targeting the country in which Fadurel Technologies is headquartered and describe each threat, including its behavior, associated indicators, and any relevant campaigns or groups.**
+
+The investigation will use the available intelligence within OpenCTI to identify the leading threats and then conduct a deeper investigation of the selected threats.
+
+The resulting threat ranking represents the intelligence observed within OpenCTI during the assessment and should therefore be treated as an intelligence snapshot rather than a definitive ranking of every cyber threat affecting the United States.
+
+---
+
+## 5. Investigation Objectives
 
 The investigation aims to:
 
-- Profile the organization's sector and geographic context.
-- Assess the cyber threat landscape associated with the United States.
-- Identify the leading threats returned by OpenCTI.
-- Select the top two threats for detailed investigation.
-- Examine the behavior and capabilities of each threat.
-- Identify associated indicators and observables.
-- Investigate related campaigns, malware, and threat groups.
-- Map relevant activity to MITRE ATT&CK attack patterns.
-- Conduct deeper analysis of relevant victims and threat actors.
-- Translate the intelligence into defensive considerations for a technology-sector organization.
+1. Establish the organizational and geographic context of Fadurel Technologies.
+2. Assess the cyber threat landscape associated with the United States.
+3. Identify the leading threats represented within the available OpenCTI intelligence.
+4. Select the top two threats for detailed investigation.
+5. Describe the behavior and capabilities of each selected threat.
+6. Identify associated indicators and observables.
+7. Identify relevant campaigns associated with the selected threats.
+8. Identify associated threat actors, groups, or intrusion sets.
+9. Identify relevant malware and infrastructure relationships.
+10. Examine associated MITRE ATT&CK attack patterns.
+11. Investigate relevant victim relationships where available.
+12. Assess the relevance of the intelligence to Fadurel Technologies.
 
-  ## Scope
+---
 
-### Organization
-- **Organization:** Fadurel Technologies
-- **Sector:** Technology
-- **Headquarters:** United States
+## 6. Scope of Assessment
 
-### Geographic Scope
-United States
+The investigation covers the following areas:
 
-### Intelligence Platform
-OpenCTI
+### Threat Intelligence
 
-### Intelligence Sources / Connectors
-- AlienVault OTX
-- MITRE ATT&CK
-
-### Primary Focus
-- Threat landscape
-- Threat actors
-- Campaigns
-- Malware
+- Threat behavior
 - Indicators
-- Attack patterns
-- Victim relationships
+- Malware
+- Infrastructure
+- Campaigns
+- Threat actors and groups
+- Victims
 
-  ## Investigation Methodology
+### Technical Analysis
 
-The investigation followed the workflow below:
+- MITRE ATT&CK attack patterns
+- Threat relationships
+- Malware relationships
+- Indicator relationships
+- Campaign relationships
 
-1. Establish the organization's sector and headquarters location.
-2. Use OpenCTI to investigate threats associated with the United States.
-3. Review the resulting threat landscape and identify the leading threats.
-4. Select the top two threats for deeper investigation.
-5. Examine each threat's associated intelligence and relationships.
-6. Investigate related campaigns, threat actors, malware, and indicators.
-7. Examine associated MITRE ATT&CK attack patterns.
-8. Conduct additional victim and threat-actor analysis where relevant.
-9. Assess the potential relevance of the findings to Fadurel Technologies.
-10. Document the findings and supporting evidence.
+### Organizational Relevance
 
-## Tools & Technologies
+- Relevance to Fadurel Technologies
+- Potential areas of exposure
+- Defensive considerations
 
-| Tool | Purpose |
-|---|---|
-| OpenCTI | Threat intelligence management and relationship analysis |
-| AlienVault OTX | External threat intelligence |
-| MITRE ATT&CK | Adversary tactics, techniques, and attack patterns |
-| Docker | OpenCTI deployment |
-| Ubuntu Server | OpenCTI environment |
-| GitHub | Investigation documentation and evidence |
+---
+
+## 7. Intelligence Platform
+
+### OpenCTI
+
+OpenCTI is used as the primary Cyber Threat Intelligence platform for the investigation.
+
+The platform provides the investigation environment for organizing and exploring relationships between threat actors, campaigns, malware, indicators, victims, attack patterns, and other intelligence entities.
+
+OpenCTI is designed to structure, store, organize, and visualize cyber threat intelligence and can ingest intelligence through connectors and other data sources.
+
+---
+
+## 8. Intelligence Sources
+
+The investigation uses the following intelligence sources and integrations:
+
+### AlienVault OTX
+
+AlienVault Open Threat Exchange (OTX) is used as an external source of threat intelligence and observables.
+
+### MITRE ATT&CK
+
+MITRE ATT&CK is used to examine adversary behavior and map relevant activity to documented attack patterns and techniques.
+
+### OpenCTI
+
+OpenCTI serves as the central platform through which the available intelligence is collected, correlated, and investigated.
+
+---
+
+## 9. Investigation Methodology
+
+The investigation follows a progressive intelligence-analysis workflow.
+
+### Phase 1 - Organizational Context
+
+Establish:
+
+- Organization
+- Sector
+- Headquarters
+- Relevant threat exposure
+
+### Phase 2 - National Threat Landscape
+
+Investigate the United States within OpenCTI and identify the threats associated with the country.
+
+### Phase 3 - Threat Prioritization
+
+Review the resulting threat landscape and identify the two leading threats returned by the investigation.
+
+### Phase 4 - Threat Investigation
+
+For each selected threat, investigate:
+
+- Behavior
+- Indicators
+- Malware
+- Campaigns
+- Threat actors/groups
+- Infrastructure
+- Victims
+- MITRE ATT&CK attack patterns
+
+### Phase 5 - Relationship Analysis
+
+Use OpenCTI's relationship-based investigation capabilities to determine how the different intelligence entities are connected.
+
+### Phase 6 - Organizational Assessment
+
+Assess how the identified intelligence may be relevant to Fadurel Technologies as a technology-sector organization.
+
+### Phase 7 - Intelligence Reporting
+
+Document the findings, supporting evidence, relationships, and relevant defensive considerations.
+
+---
+
+## 10. Expected Investigation Output
+
+The investigation is expected to produce:
+
+- A United States threat landscape assessment
+- Identification of the two selected threats
+- Detailed threat profiles
+- Associated indicators
+- Relevant campaigns
+- Associated threat actors/groups
+- Associated malware
+- Relevant victim relationships
+- MITRE ATT&CK mappings
+- Supporting OpenCTI evidence
+- An assessment of relevance to Fadurel Technologies
+- A final intelligence assessment
