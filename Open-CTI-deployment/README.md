@@ -1,6 +1,6 @@
 # OpenCTI Deployment
 
-##  Ubuntu Server Deployment
+## Ubuntu Server Deployment
 
 I started the deployment by installing Ubuntu Server.
 
@@ -12,9 +12,15 @@ I started the deployment by installing Ubuntu Server.
 
 After setting up the Ubuntu Server, I created a login username and password.
 
+### Final VM Configuration
+
+As the OpenCTI workload increased, I increased the resources allocated to the Ubuntu VM.
+
+![Final Ubuntu VM Configuration](screenshots/vm-configuration.png)
+
 ---
 
-##  OpenCTI Installation
+## OpenCTI Installation
 
 I had to troubleshoot the OpenCTI installation process.
 
@@ -37,9 +43,15 @@ Because of this, I started installing some of the services one by one instead of
 
 After installing the services, I ran Docker Compose commands on the Ubuntu CLI to check their health status.
 
+### Docker Services Health Check
+
+The Docker Compose health check showed the OpenCTI platform and its supporting services running on the Ubuntu server.
+
+![OpenCTI Docker Services Health Check](screenshots/open-cti-deployment.png)
+
 ---
 
-##  OpenCTI Data Ingestion
+## OpenCTI Data Ingestion
 
 ### Adding the AlienVault OTX Connector
 
@@ -53,13 +65,19 @@ There, I found information about the queues, including:
 - How much data was being processed
 - How fast the data was moving through the process
 
+### AlienVault OTX Integration
+
+The AlienVault OTX connector was visible in the OpenCTI Integrations page and was active.
+
+![AlienVault OTX Integration](screenshots/alienvault-otx-integration.png)
+
 I immediately noticed that the logs were piling up.
 
 There was a large amount of data that RabbitMQ was yet to process, while AlienVault OTX continued to ingest additional logs.
 
 ---
 
-##  Initial Data Ingestion Period
+## Initial Data Ingestion Period
 
 The AlienVault OTX connector was ingesting logs from the beginning of **January 2026** through **September 2026**.
 
@@ -73,7 +91,7 @@ This was making RabbitMQ unhealthy.
 
 ---
 
-##  Troubleshooting the Ingestion Workload
+## Troubleshooting the Ingestion Workload
 
 Because the ingestion workload was becoming too heavy and could potentially cause my PC to crash, I had to troubleshoot the issue.
 
@@ -89,7 +107,7 @@ There was still a large backlog of data that AlienVault OTX had already ingested
 
 ---
 
-##  Resource Adjustment
+## Resource Adjustment
 
 Because the workload was still high, I increased the resources allocated to my Ubuntu VM.
 
@@ -108,7 +126,7 @@ After the backlog was processed, I planned to turn AlienVault OTX back on and mo
 
 ---
 
-##  Data Ingestion Backlog
+## Data Ingestion Backlog
 
 I kept the AlienVault OTX ingestion turned off while the existing backlog was being processed.
 
@@ -120,7 +138,7 @@ The large amount of data and the processing time showed that the volume of intel
 
 ---
 
-##  OpenCTI Deployment Outcome
+## OpenCTI Deployment Outcome
 
 Through the deployment process, I was able to:
 
