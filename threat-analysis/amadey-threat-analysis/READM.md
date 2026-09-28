@@ -8,7 +8,7 @@ Amadey is a malware entity represented in OpenCTI with associated indicators, re
 
 The investigation focused on the available intelligence associated with Amadey and a related report titled **"Disposable Domains, Durable Hosting"**, which provided additional context about the infrastructure and attack activity associated with the observed threat.
 
-![Amadey Indicator Overview](./screenshots/amadey-indicator-overview.png)
+![Amadey Indicator Overview](./screenshots/top-10-threats.png)
 
 *Figure: Amadey-related intelligence displayed in OpenCTI.*
 
