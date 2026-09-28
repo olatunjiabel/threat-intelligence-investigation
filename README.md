@@ -1,6 +1,6 @@
 # Cyber Threat Intelligence Investigation Brief
 
-## 1. Investigation Overview
+##  Investigation Overview
 
 ### Organization
 
@@ -20,7 +20,7 @@ Fadurel Technologies is a global technology company that provides services acros
 
 ---
 
-## 2. Analyst Role
+##  Analyst Role
 
 **Role:** Cyber Threat Intelligence Analyst
 
@@ -30,7 +30,7 @@ The assessment focuses on identifying Active threats associated with the country
 
 ---
 
-## 3. Investigation Scenario
+##  Investigation Scenario
 
 Fadurel Technologies has authorized a Cyber Threat Intelligence assessment of the national threat landscape associated with the country where their organization is headquartered.
 
@@ -42,7 +42,7 @@ The investigation will begin with a broad assessment of the United States threat
 
 ---
 
-## 4. Intelligence Requirement
+##  Intelligence Requirement
 
 The primary intelligence requirement for this investigation is:
 
@@ -54,7 +54,7 @@ The resulting threat ranking represents the intelligence observed within OpenCTI
 
 ---
 
-## 5. Investigation Objectives
+##  Investigation Objectives
 
 The investigation aims to:
 
@@ -73,7 +73,7 @@ The investigation aims to:
 
 ---
 
-## 6. Scope of Assessment
+##  Scope of Assessment
 
 The investigation covers the following areas:
 
@@ -103,7 +103,7 @@ The investigation covers the following areas:
 
 ---
 
-## 7. Intelligence Platform
+##  Intelligence Platform
 
 ### OpenCTI
 
@@ -115,7 +115,7 @@ OpenCTI is designed to structure, store, organize, and visualize cyber threat in
 
 ---
 
-## 8. Intelligence Sources
+##  Intelligence Sources
 
 The investigation uses the following intelligence sources and integrations:
 
@@ -133,7 +133,7 @@ OpenCTI serves as the central platform through which the available intelligence 
 
 ---
 
-## 9. Investigation Methodology
+##  Investigation Methodology
 
 The investigation follows a progressive intelligence-analysis workflow.
 
@@ -181,7 +181,7 @@ Document the findings, supporting evidence, relationships, and relevant defensiv
 
 ---
 
-## 10. Expected Investigation Output
+##  Expected Investigation Output
 
 The investigation is expected to produce:
 
