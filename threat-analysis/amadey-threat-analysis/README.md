@@ -372,7 +372,7 @@ The relationships displayed in OpenCTI were reviewed and mapped below.
 | Command and Control | T1573 | Encrypted Channel | Encrypting C2 communications to prevent defenders from easily inspecting the traffic. |
 | Exfiltration | T1041 | Exfiltration Over C2 Channel | Sending stolen information through an existing command-and-control channel. |
 
-![Amadey MITRE ATT&CK Relationship Map](screenshots/attack-patterns-kill-chain.png)
+![Amadey MITRE ATT&CK Relationship Map](screenshots/Attack-patterns-kill-chain.png)
 
 *Figure: MITRE ATT&CK attack patterns associated with Amadey - S1025 as displayed in OpenCTI.*
 ---
