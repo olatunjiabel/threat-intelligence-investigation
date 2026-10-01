@@ -444,15 +444,157 @@ and were used to direct victims into the subsequent attack chain.
                     Exfiltration
 
 # 11. Relevance of Amadey to Fadurel Technologies
+# Amadey - Relevance to Fadurel Technologies
 
+## Fadurel Technologies
 
+Fadurel Technologies:
 
-### Fadurel Technologies Relevance
-
-
+- Does online retail business.
+- Has third-party sellers that sell through Amazon.
+- Provides cloud computing.
+- Does advertising.
+- Owns a streaming platform.
 
 ---
 
-# 12. Investigation Summary
+## How Does Amadey Relate to Fadurel Technologies?
+
+So, how does Amadey relate to Fadurel Technologies?
+
+Or how can Amadey pose a threat to Fadurel Technologies?
+
+It is established from the CTI analysis that **Amadey itself is a malware**.
+
+Several campaigns are associated with Amadey.
+
+---
+
+## Infrastructure Associated with Amadey
+
+The infrastructure associated with Amadey is **AS202412**.
+
+If the infrastructure associated with Amadey manages to compromise Fadurel Technologies' endpoints that support its online portal business, this could be a major catastrophe.
+
+Imagine Fadurel Technologies employees surfing the internet on company endpoints. While on a website that uses the **ClickFix technique** to deceive the employee, if the employee falls for the trap and runs the command as instructed by the CAPTCHA on their endpoint, the device could become compromised.
+
+This could lead to endpoint compromise.
+
+---
+
+## Possible Attack Progression
+
+The attacker might then try to download malware onto the endpoint after acquiring access.
+
+Further remote access might occur.
+
+Identity might be compromised.
+
+Lateral movement might occur.
+
+Exfiltration of confidential data might also occur.
+
+---
+
+## Potential Impact on Fadurel Technologies
+
+So, this might result in:
+
+- Lack of availability on Fadurel Technologies' endpoints if the malware spreads.
+- Data exfiltration, which could compromise the confidentiality of customer data.
+- Identity compromise if the attacker gains access to employees' login credentials.
+- Fadurel Technologies' streaming platforms might become unavailable.
+- The online website could become compromised.
+
+---
+
+## Attack Activity and Attacker Behaviour
+
+The events describe each attack activity or attacker behaviour observed during the investigation.
+
+The attack activity can therefore progress from the initial compromise of an endpoint to further access, identity compromise, lateral movement, and potential exfiltration of confidential data.
+
+---
+## Fadurel Technologies Threat Scenario
+
+The potential scenario involving Fadurel Technologies can be summarized as:
+
+    Fadurel Technologies Employee
+                |
+                v
+         Internet Browsing
+                |
+                v
+           Malicious Website
+                |
+                v
+           ClickFix Technique
+                |
+                v
+           Fake CAPTCHA
+                |
+                v
+     Employee Runs the Command
+                |
+                v
+         Endpoint Compromise
+                |
+                v
+          Malware Download
+                |
+                v
+           Further Access
+                |
+          +-----+-----+
+          |           |
+          v           v
+       Identity    Remote
+      Compromise   Access
+          |           |
+          +-----+-----+
+                |
+                v
+          Lateral Movement
+                |
+                v
+         Data Exfiltration
+                |
+                v
+      Confidential Data
+          Compromise
+
+
+--
+          ## 12. Investigation Summary
+
+This investigation was conducted to assess the cyber threat landscape associated with the country where **Fadurel Technologies** is headquartered and to identify threats requiring deeper analysis.
+
+Fadurel Technologies operates in the technology sector, with activities including online retail, third-party sellers, cloud computing, advertising, and streaming services. The organization's headquarters is located in the **United States of America**.
+
+**OpenCTI** was used as the primary threat intelligence platform, with intelligence from **AlienVault OTX** and **MITRE ATT&CK** used to support the investigation.
+
+The United States was selected as the country of focus in OpenCTI. The resulting threat landscape identified **Amadey - S1025** and **UNC2452** as the first two threats displayed in the OpenCTI results and therefore selected for further investigation.
+
+The investigation then focused on **Amadey - S1025** and examined its associated reports, campaigns, indicators, malware relationships, infrastructure, and MITRE ATT&CK attack patterns.
+
+One of the campaigns investigated was **Disposable Domains, Durable Hosting**. The campaign involved multiple malicious chains that shared associated infrastructure linked to **AS202412**. The activity included malicious and disposable domains, fake CAPTCHA pages, and the **ClickFix** technique, in which victims were instructed to copy and paste commands.
+
+The investigation mapped the observed campaign activity to relevant MITRE ATT&CK attack patterns, including infrastructure acquisition, web infrastructure staging, malicious copy-and-paste execution, dynamic resolution, remote-access activity, persistence, and potential exfiltration.
+
+OpenCTI also showed a broader set of MITRE ATT&CK relationships associated with Amadey. These relationships were documented separately from the campaign-specific mapping to distinguish the broader Amadey threat profile from the techniques specifically associated with the investigated campaign.
+
+The investigation also assessed the potential relevance of Amadey to Fadurel Technologies. A successful compromise of an employee endpoint through a ClickFix-style attack could potentially lead to further malware activity, remote access, identity compromise, lateral movement, and exfiltration of confidential information.
+
+Potential consequences identified for Fadurel Technologies include endpoint availability issues, compromise of customer data confidentiality, identity compromise, disruption of streaming services, and compromise of online business infrastructure.
+
+Overall, the investigation established a relationship between **Amadey, its associated infrastructure, the Disposable Domains, Durable Hosting campaign, its indicators and malware relationships, and relevant MITRE ATT&CK attack patterns**, while also assessing how the observed activity could potentially affect Fadurel Technologies.
+
+
+
+
+
+
+
+
 
 
