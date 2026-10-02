@@ -267,11 +267,13 @@ The campaign-specific mapping is intended to identify techniques that are suppor
 
 ---
 
+---
 ## CaptiveCrunch ATT&CK Flow
 
 The observed campaign can be represented as:
 
 ```text
+
 UNC2452
     |
     ↓
@@ -302,3 +304,177 @@ Credential Theft      ClickFix /
                |
                ↓
           Further Access
+---
+```
+# Relevance of UNC2452 to Fadurel Technologies
+
+## UNC2452 - Relevance to Fadurel Technologies
+
+### Fadurel Technologies
+
+Fadurel Technologies:
+
+- Does online retail business.
+- Has third-party sellers that sell through Amazon.
+- Provides cloud computing.
+- Does advertising.
+- Owns a streaming platform.
+
+---
+
+## How Does UNC2452 Relate to Fadurel Technologies?
+
+So, how does UNC2452 relate to Fadurel Technologies?
+
+Or how can UNC2452 pose a threat to Fadurel Technologies?
+
+It is established from the CTI analysis that **UNC2452 is a threat actor** associated with activity targeting organizations and users through techniques such as credential theft, phishing, and other methods of gaining access.
+
+---
+
+## How Could UNC2452 Affect Fadurel Technologies?
+
+Fadurel Technologies operates online services, cloud computing services, advertising services, streaming services, and online retail activities.
+
+These services depend on users and employees being able to securely access online accounts and systems.
+
+If an employee or user associated with Fadurel Technologies encounters an attack similar to the activity observed in the **CaptiveCrunch** campaign, the attacker could attempt to obtain credentials or other authentication information.
+
+For example, an employee connecting to a compromised or malicious captive portal could potentially be redirected to attacker-controlled infrastructure.
+
+If the employee is then presented with a convincing Microsoft 365 phishing page or a device-code phishing technique and provides authentication information, the attacker could potentially obtain access to the account.
+
+---
+
+## Possible Attack Progression
+
+The potential attack progression can be described as:
+
+1. Employee or user connects to a captive portal network.
+2. DNS or HTTP traffic is manipulated.
+3. The victim is redirected to attacker-controlled infrastructure.
+4. The victim is presented with a phishing page or another social-engineering mechanism.
+5. Microsoft 365 credentials or authentication information may be targeted.
+6. Device-code phishing may be used to abuse the Microsoft Entra ID authentication flow.
+7. Malware delivery may occur through ClickFix.
+8. Further access to the compromised account or endpoint may occur.
+9. The attacker may attempt to access additional systems or information.
+10. Confidential information could potentially be accessed or exfiltrated.
+
+The exact progression would depend on the specific attack and the level of access obtained by the attacker.
+
+---
+
+## Potential Impact on Fadurel Technologies
+
+If an attack of this nature successfully compromises an employee account or endpoint, potential consequences for Fadurel Technologies could include:
+
+- Identity compromise if employee credentials or authentication information are obtained.
+- Unauthorized access to Microsoft 365 or other organizational resources.
+- Compromise of confidential customer or business information.
+- Unauthorized access to cloud-based resources.
+- Further compromise of organizational systems.
+- Potential disruption to online business services.
+- Potential compromise or misuse of systems supporting Fadurel Technologies' online retail and streaming services.
+
+The actual impact would depend on the account or endpoint compromised and the level of access obtained by the attacker.
+
+---
+
+## Attack Activity and Attacker Behaviour
+
+The events observed during the investigation demonstrate several stages of attacker activity.
+
+The **CaptiveCrunch** campaign involved manipulation of DNS and HTTP traffic on captive portal networks, redirection to attacker-controlled infrastructure, phishing for Microsoft 365 credentials, device-code phishing, and malware delivery through ClickFix social engineering.
+
+The OpenCTI investigation also showed relationships between UNC2452, indicators, malware, attack patterns, and the CaptiveCrunch campaign.
+
+These relationships provide a basis for understanding how the threat activity could potentially affect an organization such as Fadurel Technologies.
+
+---
+
+## Fadurel Technologies Threat Scenario
+
+The potential scenario involving Fadurel Technologies can be summarized as:
+
+```text
+Fadurel Technologies Employee
+            |
+            v
+     Connects to Network
+            |
+            v
+      Captive Portal
+            |
+            v
+ DNS / HTTP Manipulation
+            |
+            v
+ Redirected to
+ Attacker Infrastructure
+            |
+            v
+      Phishing Page
+            |
+            v
+   Authentication Attack
+            |
+      +-----+------+
+      |            |
+      v            v
+Microsoft 365   Device-Code
+Credential      Phishing
+Theft               |
+      |             |
+      +------+------+
+             |
+             v
+   Authentication Compromise
+             |
+       +-----+------+
+       |            |
+       v            v
+  Account Access  ClickFix
+                      |
+                      v
+               Malware Delivery
+                      |
+                      v
+                Endpoint Access
+                      |
+                      v
+                 Further Access
+                      |
+                      v
+                 Sensitive Data
+                      |
+                      v
+                  Data Exposure
+```
+# Investigation Summary
+
+This investigation was carried out to understand the cyber threat landscape associated with the country where **Fadurel Technologies** is headquartered and to identify threats that required further investigation.
+
+Fadurel Technologies operates in the technology sector and is involved in online retail, third-party sellers, cloud computing, advertising, and streaming services. The company is headquartered in the **United States of America**.
+
+I used **OpenCTI** as the main threat intelligence platform for the investigation, with **AlienVault OTX** and **MITRE ATT&CK** used to support the investigation.
+
+The United States was selected as the country of focus in OpenCTI. From the threat results displayed by OpenCTI, **Amadey - S1025** and **UNC2452** were the first two threats displayed and were therefore selected for further investigation.
+
+The investigation then focused on **UNC2452** and the information available in OpenCTI about its campaigns, indicators, malware, and MITRE ATT&CK relationships.
+
+One of the main campaigns investigated was **CaptiveCrunch**. The campaign involved the manipulation of DNS and HTTP traffic on captive portal networks at hotels, conference centers, and hospitality venues. Victims could be redirected to attacker-controlled infrastructure.
+
+The campaign also involved attempts to obtain **Microsoft 365 credentials** through phishing pages and the use of **device-code phishing** to abuse the Microsoft Entra ID authentication flow. The campaign also included malware delivery through the **ClickFix** social engineering technique.
+
+OpenCTI showed relationships between the UNC2452 activity and malware including **CornFlake** and **ChocoShell**. It also displayed multiple indicators associated with the threat activity.
+
+The MITRE ATT&CK relationships associated with UNC2452 were also examined. These relationships showed different attack patterns involving areas such as credential access, phishing, execution, collection, privilege escalation, defense impairment, and adversary-in-the-middle activity.
+
+The broader MITRE ATT&CK relationships were kept separate from the campaign-specific analysis so that I could distinguish between the overall UNC2452 threat profile and the techniques that were specifically supported by the CaptiveCrunch investigation.
+
+I also assessed how this type of activity could potentially affect **Fadurel Technologies**. Since the organization operates online services, cloud computing, online retail, advertising, and streaming services, a successful compromise of an employee account or endpoint could potentially give an attacker unauthorized access to organizational resources.
+
+A successful attack similar to the CaptiveCrunch activity could potentially lead to credential compromise, unauthorized access to Microsoft 365 or other resources, endpoint compromise, further access to systems, and possible exposure of confidential information.
+
+Overall, the investigation established relationships between **UNC2452, the CaptiveCrunch campaign, associated indicators, CornFlake, ChocoShell, and relevant MITRE ATT&CK attack patterns**. The investigation also showed how this type of threat activity could potentially affect Fadurel Technologies.
