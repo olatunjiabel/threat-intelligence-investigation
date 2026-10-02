@@ -170,3 +170,135 @@ Campaign             |
    +---- Malware Delivery
    |
    +---- 8 Indicators
+```
+
+
+
+# MITRE ATT&CK Mapping
+
+This section will map the observed UNC2452 behaviour to the relevant MITRE ATT&CK techniques and sub-techniques.
+
+The mapping will connect the behaviours identified during the investigation to the corresponding MITRE ATT&CK attack patterns.
+
+## MITRE ATT&CK Mapping
+
+### UNC2452 - MITRE ATT&CK Relationship Mapping
+
+#### ATT&CK Relationship Overview
+
+OpenCTI associates UNC2452 with a broad range of MITRE ATT&CK attack patterns across multiple stages of the adversary lifecycle.
+
+The OpenCTI knowledge view displayed attack patterns across:
+
+- Stealth
+- Privilege Escalation
+- Collection
+- Execution
+- Credential Access
+- Initial Access
+
+The relationships displayed in OpenCTI were reviewed and mapped below.
+
+> **Important:** An OpenCTI relationship indicates that the attack pattern is associated with the UNC2452 knowledge object. It should not automatically be interpreted as proof that every technique was used in every UNC2452 campaign. Campaign-specific claims require supporting evidence.
+
+---
+
+## Relationship Map
+
+| Tactic shown in OpenCTI | ATT&CK ID | Attack Pattern | What the relationship means |
+|---|---|---|---|
+| Stealth | T1027 | Obfuscated Files or Information | Obfuscating files, code or other information to make analysis and detection more difficult. |
+| Privilege Escalation | T1055 | Process Injection | Injecting code into another process to execute malicious code and potentially evade defenses or elevate privileges. |
+| Collection | T1056 | Input Capture | Capturing user input that may contain credentials or other information. |
+| Collection | T1056.001 | Input Capture: Keylogging | Capturing keystrokes from a victim system. |
+| Execution | T1059 | Command and Scripting Interpreter | Using command or scripting interpreters to execute commands, scripts or binaries. |
+| Execution | T1059.001 | PowerShell | Using PowerShell to execute commands or scripts. |
+| Execution | T1059.003 | Windows Command Shell | Using the Windows Command Shell to execute commands or scripts. |
+| Collection | T1113 | Screen Capture | Capturing screenshots of a victim's screen. |
+| Stealth | T1140 | Deobfuscate/Decode Files or Information | Decoding or decrypting information that was previously obfuscated or encrypted. |
+| Execution | T1204 | User Execution | Relying on the victim to perform an action that causes malicious activity to execute. |
+| Execution | T1204.003 | User Execution: Malicious File | Relying on the victim to open or execute a malicious file. |
+| Credential Access | T1528 | Steal Application Access Token | Stealing application access tokens that can be used to access resources as a legitimate user or application. |
+| Credential Access | T1539 | Steal Web Session Cookie | Stealing authenticated web-session cookies for reuse in accessing web applications. |
+| Privilege Escalation | T1548 | Abuse Elevation Control Mechanism | Circumventing mechanisms designed to control privilege elevation. |
+| Privilege Escalation | T1548.002 | Abuse Elevation Control Mechanism: Bypass User Account Control | Bypassing Windows User Account Control to execute with elevated privileges. |
+| Collection | T1557 | Adversary-in-the-Middle | Positioning between networked devices to support activities such as credential theft, network sniffing or traffic manipulation. |
+| Collection | T1557.002 | Adversary-in-the-Middle: ARP Cache Poisoning | Manipulating ARP cache information to position the adversary between networked systems. |
+| — | T1562 | Impair Defenses | Attempting to weaken or interfere with security controls and defensive mechanisms. |
+| — | T1562.001 | Impair Defenses: Disable or Modify Tools | Disabling or modifying security tools or their configurations to reduce defensive visibility or protection. |
+| Initial Access | T1566 | Phishing | Using phishing techniques to gain access to victim systems. |
+| Initial Access | T1566.002 | Phishing: Spearphishing Link | Using malicious links to direct victims toward attacker-controlled content or resources. |
+
+---
+
+## UNC2452 MITRE ATT&CK Relationship Map
+
+The OpenCTI knowledge view shows relationships between UNC2452 and the identified MITRE ATT&CK attack patterns.
+
+![UNC2452 MITRE ATT&CK Attack Patterns](./screenshots/unc2452-mitre-attack.png)
+
+*Figure: MITRE ATT&CK attack patterns associated with UNC2452 as displayed in OpenCTI.*
+
+The relationship map demonstrates that the UNC2452 knowledge object is associated with techniques covering execution, privilege escalation, credential access, collection, stealth and initial access.
+
+These relationships provide a broader behavioural profile of the threat actor.
+
+They do not establish that all 21 attack patterns occurred together during the CaptiveCrunch campaign.
+
+---
+
+# Campaign Attack Pattern Mapping
+
+The following attack patterns will be assessed separately against the **CaptiveCrunch** campaign.
+
+The campaign-specific mapping is intended to identify techniques that are supported by the evidence collected during the investigation rather than assuming that every technique associated with UNC2452 was used in the campaign.
+
+| Attack Stage | MITRE ATT&CK ID | Attack Pattern | Relationship to Observed Campaign |
+|---|---|---|---|
+| Network Positioning | T1557 | Adversary-in-the-Middle | The CaptiveCrunch report describes manipulation of DNS and HTTP traffic on captive portal networks. |
+| User Interaction | T1204 | User Execution | The campaign uses social engineering to influence victim actions. |
+| User Interaction | T1204.003 | User Execution: Malicious File | To be confirmed from the underlying campaign evidence before being treated as a specific technique. |
+| Credential Access | T1528 | Steal Application Access Token | The campaign abuses the Microsoft Entra ID authentication flow; the exact token-theft mechanism should be confirmed from the underlying report. |
+| Credential Access | T1539 | Steal Web Session Cookie | To be confirmed from the underlying campaign evidence. |
+| Initial Access | T1566 | Phishing | The CaptiveCrunch report describes phishing pages used to harvest Microsoft 365 credentials. |
+| Initial Access | T1566.002 | Phishing: Spearphishing Link | To be confirmed if the underlying campaign evidence establishes delivery through a malicious link. |
+
+> **Important:** Campaign-specific ATT&CK mappings should only be retained where the underlying CaptiveCrunch evidence supports the technique. The broader UNC2452 relationship map should not be used as evidence that every technique occurred during CaptiveCrunch.
+
+---
+
+## CaptiveCrunch ATT&CK Flow
+
+The observed campaign can be represented as:
+
+```text
+UNC2452
+    |
+    ↓
+CaptiveCrunch Campaign
+    |
+    ↓
+Captive Portal Network
+    |
+    ↓
+DNS / HTTP Traffic Manipulation
+    |
+    ↓
+Victim Redirection
+    |
+    ↓
+Phishing / Social Engineering
+    |
+    +----------------------+
+    |                      |
+    ↓                      ↓
+Credential Theft      ClickFix /
+                      Malware Delivery
+    |                      |
+    +----------+-----------+
+               |
+               ↓
+        Potential Compromise
+               |
+               ↓
+          Further Access
