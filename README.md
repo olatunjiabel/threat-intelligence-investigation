@@ -1,6 +1,6 @@
 # Cyber Threat Intelligence Investigation Brief
 
-##  Investigation Overview
+## Investigation Overview
 
 ### Organization
 
@@ -20,19 +20,38 @@ Fadurel Technologies is a global technology company that provides services acros
 
 ---
 
-##  Analyst Role
+## Repository Navigation
+
+| Section | Description |
+|---|---|
+| [Investigation Brief](00-investigation-brief/investigation-brief.md) | Investigation scenario, intelligence requirement, objectives, scope, and methodology |
+| [Organization Profile](01-organization-profile/organization-profile.md) | Fadurel Technologies organizational and operational context |
+| [Country Threat Landscape](02-country-threat-landscape/threat-landscape.md) | United States threat landscape and OpenCTI threat selection |
+| [Amadey Analysis](03-threat-analysis/amadey/analysis.md) | Detailed analysis of Amadey - S1025 |
+| [Amadey ATT&CK Mapping](03-threat-analysis/amadey/attack-patterns.md) | Amadey MITRE ATT&CK relationships and campaign-specific mapping |
+| [UNC2452 Analysis](03-threat-analysis/unc2452/analysis.md) | Detailed analysis of UNC2452 and associated activity |
+| [UNC2452 ATT&CK Mapping](06-mitre-attack/attack-patterns.md) | UNC2452 MITRE ATT&CK relationship mapping |
+| [Victim Analysis](04-victim-deep-dive/victim-analysis.md) | Victim and organizational relationship analysis |
+| [Threat Actor Analysis](05-threat-actor-analysis/actor-analysis.md) | Threat actor and group analysis |
+| [OpenCTI Deployment](07-opencti-deployment/README.md) | OpenCTI deployment, environment, connectors, and troubleshooting |
+| [Final Assessment](08-final-assessment/final-assessment.md) | Final intelligence assessment and organizational relevance |
+| [Professional Threat Intelligence Report](09-reports/Fadurel-Technologies-Threat-Intelligence-Report.pdf) | Complete professional CTI report |
+
+---
+
+## Analyst Role
 
 **Role:** Cyber Threat Intelligence Analyst
 
 The analyst is responsible for conducting a threat intelligence assessment of the cyber threat landscape relevant to Fadurel Technologies and its operating environment.
 
-The assessment focuses on identifying Active threats associated with the country in which the organization is headquartered and developing intelligence that can support an understanding of the organization's potential threat exposure and help in proactive threat hunting and detection engineering of their infrastructure.
+The assessment focuses on identifying active threats associated with the country in which the organization is headquartered and developing intelligence that can support an understanding of the organization's potential threat exposure and help in proactive threat hunting and detection engineering of its infrastructure.
 
 ---
 
-##  Investigation Scenario
+## Investigation Scenario
 
-Fadurel Technologies has authorized a Cyber Threat Intelligence assessment of the national threat landscape associated with the country where their organization is headquartered.
+Fadurel Technologies has authorized a Cyber Threat Intelligence assessment of the national threat landscape associated with the country where the organization is headquartered.
 
 Because Fadurel Technologies is headquartered in the United States, the investigation focuses on the cyber threat landscape associated with the United States.
 
@@ -42,7 +61,7 @@ The investigation will begin with a broad assessment of the United States threat
 
 ---
 
-##  Intelligence Requirement
+## Intelligence Requirement
 
 The primary intelligence requirement for this investigation is:
 
@@ -54,7 +73,7 @@ The resulting threat ranking represents the intelligence observed within OpenCTI
 
 ---
 
-##  Investigation Objectives
+## Investigation Objectives
 
 The investigation aims to:
 
@@ -73,7 +92,7 @@ The investigation aims to:
 
 ---
 
-##  Scope of Assessment
+## Scope of Assessment
 
 The investigation covers the following areas:
 
@@ -103,7 +122,7 @@ The investigation covers the following areas:
 
 ---
 
-##  Intelligence Platform
+## Intelligence Platform
 
 ### OpenCTI
 
@@ -111,11 +130,9 @@ OpenCTI is used as the primary Cyber Threat Intelligence platform for the invest
 
 The platform provides the investigation environment for organizing and exploring relationships between threat actors, campaigns, malware, indicators, victims, attack patterns, and other intelligence entities.
 
-OpenCTI is designed to structure, store, organize, and visualize cyber threat intelligence and can ingest intelligence through connectors and other data sources.
-
 ---
 
-##  Intelligence Sources
+## Intelligence Sources
 
 The investigation uses the following intelligence sources and integrations:
 
@@ -133,7 +150,7 @@ OpenCTI serves as the central platform through which the available intelligence 
 
 ---
 
-##  Investigation Methodology
+## Investigation Methodology
 
 The investigation follows a progressive intelligence-analysis workflow.
 
@@ -181,7 +198,7 @@ Document the findings, supporting evidence, relationships, and relevant defensiv
 
 ---
 
-##  Expected Investigation Output
+## Expected Investigation Output
 
 The investigation is expected to produce:
 
@@ -197,3 +214,11 @@ The investigation is expected to produce:
 - Supporting OpenCTI evidence
 - An assessment of relevance to Fadurel Technologies
 - A final intelligence assessment
+
+---
+
+## Final Report
+
+The detailed investigation is documented throughout this repository, while the complete professional assessment is available in the final report.
+
+**[View the Professional Threat Intelligence Report](09-reports/Fadurel-Technologies-Threat-Intelligence-Report.pdf)**
