@@ -504,8 +504,7 @@ The potential scenario involving Fadurel Technologies can be summarized as:
           Compromise
 
 
---
-          ## 12. Investigation Summary
+ ## 12. Investigation Summary
 
 This investigation was conducted to assess the cyber threat landscape associated with the country where **Fadurel Technologies** is headquartered and to identify threats requiring deeper analysis.
 
