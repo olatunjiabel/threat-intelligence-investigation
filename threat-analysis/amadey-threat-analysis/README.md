@@ -2,7 +2,7 @@
 
 ## 1. Threat Overview
 
-**Amadey (S1025)** was identified as the first-ranked threat in the United States threat landscape displayed in OpenCTI during this investigation.
+**Amadey (S1025)** was identified as the first threat in the United States threat landscape displayed in OpenCTI during this investigation.
 
 Amadey is a malware entity represented in OpenCTI with associated indicators, reports, malware relationships, and other intelligence that can be used to understand its activity.
 
