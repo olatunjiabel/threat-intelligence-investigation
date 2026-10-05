@@ -94,7 +94,6 @@ The investigation was designed to:
 7. Identify associated victims where available.
 8. Map relevant attack patterns to MITRE ATT&CK.
 9. Assess how the identified threats could affect Fadurel Technologies.
-10. Produce a professional Cyber Threat Intelligence assessment.
 
 ---
 
