@@ -1,4 +1,11 @@
 # Amadey Threat Analysis
+### Amadey and the Campaign
+
+Amadey appears in OpenCTI as a **malware entity** and is linked to the **"Disposable Domains, Durable Hosting"** campaign.
+
+However, the campaign does not clearly state that Amadey was the malware used in the attack. The campaign describes activities such as **remote access, persistence, and the use of stealers**, with several malware entities linked to the campaign.
+
+Therefore, the behaviour and attack patterns below are based on what OpenCTI associates with Amadey through this campaign. They should not be taken as proof that **Amadey itself was the payload used in the attack**.
 
 ## 1. Threat Overview
 
@@ -173,7 +180,7 @@ Persistence and continued access
 
 ---
 
-## 6. Amadey Attack Chain
+## 6. Campaign Attack Chain
 
 Based on the intelligence examined during the investigation, the observed activity can be summarized into several stages.
 
@@ -384,7 +391,7 @@ and were used to direct victims into the subsequent attack chain.
 Fadurel Technologies:
 
 - Does online retail business.
-- Has third-party sellers that sell through Amazon.
+- Has third-party sellers.
 - Provides cloud computing.
 - Does advertising.
 - Owns a streaming platform.
