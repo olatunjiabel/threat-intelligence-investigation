@@ -203,31 +203,6 @@ The relationships displayed in OpenCTI were reviewed and mapped below.
 
 ---
 
-## Relationship Map
-
-| Tactic shown in OpenCTI | ATT&CK ID | Attack Pattern | What the relationship means |
-|---|---|---|---|
-| Stealth | T1027 | Obfuscated Files or Information | Obfuscating files, code or other information to make analysis and detection more difficult. |
-| Privilege Escalation | T1055 | Process Injection | Injecting code into another process to execute malicious code and potentially evade defenses or elevate privileges. |
-| Collection | T1056 | Input Capture | Capturing user input that may contain credentials or other information. |
-| Collection | T1056.001 | Input Capture: Keylogging | Capturing keystrokes from a victim system. |
-| Execution | T1059 | Command and Scripting Interpreter | Using command or scripting interpreters to execute commands, scripts or binaries. |
-| Execution | T1059.001 | PowerShell | Using PowerShell to execute commands or scripts. |
-| Execution | T1059.003 | Windows Command Shell | Using the Windows Command Shell to execute commands or scripts. |
-| Collection | T1113 | Screen Capture | Capturing screenshots of a victim's screen. |
-| Stealth | T1140 | Deobfuscate/Decode Files or Information | Decoding or decrypting information that was previously obfuscated or encrypted. |
-| Execution | T1204 | User Execution | Relying on the victim to perform an action that causes malicious activity to execute. |
-| Execution | T1204.003 | User Execution: Malicious File | Relying on the victim to open or execute a malicious file. |
-| Credential Access | T1528 | Steal Application Access Token | Stealing application access tokens that can be used to access resources as a legitimate user or application. |
-| Credential Access | T1539 | Steal Web Session Cookie | Stealing authenticated web-session cookies for reuse in accessing web applications. |
-| Privilege Escalation | T1548 | Abuse Elevation Control Mechanism | Circumventing mechanisms designed to control privilege elevation. |
-| Privilege Escalation | T1548.002 | Abuse Elevation Control Mechanism: Bypass User Account Control | Bypassing Windows User Account Control to execute with elevated privileges. |
-| Collection | T1557 | Adversary-in-the-Middle | Positioning between networked devices to support activities such as credential theft, network sniffing or traffic manipulation. |
-| Collection | T1557.002 | Adversary-in-the-Middle: ARP Cache Poisoning | Manipulating ARP cache information to position the adversary between networked systems. |
-| — | T1562 | Impair Defenses | Attempting to weaken or interfere with security controls and defensive mechanisms. |
-| — | T1562.001 | Impair Defenses: Disable or Modify Tools | Disabling or modifying security tools or their configurations to reduce defensive visibility or protection. |
-| Initial Access | T1566 | Phishing | Using phishing techniques to gain access to victim systems. |
-| Initial Access | T1566.002 | Phishing: Spearphishing Link | Using malicious links to direct victims toward attacker-controlled content or resources. |
 
 ---
 
