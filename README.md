@@ -19,7 +19,6 @@ The investigation focuses on identifying relevant threats, examining their assoc
 | [Threat Analysis](threat-analysis/README.md) | Main threat analysis section containing the detailed investigations. |
 | [Amadey Threat Analysis](threat-analysis/amadey-threat-analysis/README.md) | Detailed analysis of Amadey, including associated intelligence, indicators, campaigns, and MITRE ATT&CK mapping. |
 | [UNC2452 Threat Analysis](threat-analysis/UNC2452-threat-analysis/README.md) | Detailed analysis of UNC2452, including associated intelligence, indicators, campaigns, and MITRE ATT&CK mapping. |
-| [Professional Threat Intelligence Report](Fadurel_Technologies_Threat_Intelligence_Report.pdf) | Complete professional threat intelligence assessment produced from the investigation. |
 
 ---
 
