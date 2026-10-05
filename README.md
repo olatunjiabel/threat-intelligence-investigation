@@ -299,17 +299,8 @@ The repository is structured to separate:
 - Threat analysis
 - Deployment evidence
 - Supporting screenshots
-- Final reporting
-
-This allows the investigation process to be reviewed from the initial intelligence requirement through to the final assessment.
-
+  
 ---
-
-# Professional Threat Intelligence Report
-
-The detailed investigation is documented throughout this repository, while the complete professional assessment is available in the final report.
-
-**[View the Professional Threat Intelligence Report](Fadurel_Technologies_Threat_Intelligence_Report.pdf)**
 
 ---
 
@@ -350,7 +341,4 @@ threat-intelligence-investigation/
 │   └── amadey-threat-analysis/
 │       ├── README.md
 │       └── screenshots/
-│
-├── Fadurel_Technologies_Threat_Intelligence_Report.pdf
-├── LICENSE
-└── README.md
+
