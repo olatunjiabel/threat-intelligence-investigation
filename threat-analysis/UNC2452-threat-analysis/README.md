@@ -218,7 +218,7 @@ The relationship map demonstrates that the UNC2452 knowledge object is associate
 
 These relationships provide a broader behavioural profile of the threat actor.
 
-They do not establish that all 21 attack patterns occurred together during the CaptiveCrunch campaign.
+They do not establish that all  attack patterns occurred together during the CaptiveCrunch campaign.
 
 ---
 
