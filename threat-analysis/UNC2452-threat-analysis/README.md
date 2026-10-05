@@ -230,13 +230,12 @@ The campaign-specific mapping is intended to identify techniques that are suppor
 
 | Attack Stage | MITRE ATT&CK ID | Attack Pattern | Relationship to Observed Campaign |
 |---|---|---|---|
-| Network Positioning | T1557 | Adversary-in-the-Middle | The CaptiveCrunch report describes manipulation of DNS and HTTP traffic on captive portal networks. |
-| User Interaction | T1204 | User Execution | The campaign uses social engineering to influence victim actions. |
-| User Interaction | T1204.003 | User Execution: Malicious File | To be confirmed from the underlying campaign evidence before being treated as a specific technique. |
-| Credential Access | T1528 | Steal Application Access Token | The campaign abuses the Microsoft Entra ID authentication flow; the exact token-theft mechanism should be confirmed from the underlying report. |
-| Credential Access | T1539 | Steal Web Session Cookie | To be confirmed from the underlying campaign evidence. |
-| Initial Access | T1566 | Phishing | The CaptiveCrunch report describes phishing pages used to harvest Microsoft 365 credentials. |
-| Initial Access | T1566.002 | Phishing: Spearphishing Link | To be confirmed if the underlying campaign evidence establishes delivery through a malicious link. |
+| Network Positioning | T1557 | Adversary-in-the-Middle | The CaptiveCrunch campaign describes manipulation of DNS and HTTP traffic on captive portal networks and the use of attacker-controlled infrastructure. |
+| User Interaction | T1204 | User Execution | The campaign relies on victims interacting with attacker-controlled landing pages and authentication prompts. |
+| User Interaction | T1204.002 | User Execution: Malicious File | The campaign involved delivery of malware through fake update or landing pages. This technique should be treated as campaign-supported where the specific malware delivery path is evidenced. |
+| Credential Access | T1528 | Steal Application Access Token | CaptiveCrunch uses Microsoft Entra device-code authentication to obtain access to the victim's cloud session. The associated malware also steals Microsoft 365 and Entra access and refresh tokens. |
+| Credential Access | T1539 | Steal Web Session Cookie | ChocoShell is reported to steal browser session cookies as part of the credential-theft activity. |
+| Initial Access | T1566 | Phishing | The campaign uses phishing pages and Microsoft Entra device-code phishing to trick users into authenticating to attacker-controlled sessions. |
 
 > **Important:** Campaign-specific ATT&CK mappings should only be retained where the underlying CaptiveCrunch evidence supports the technique. The broader UNC2452 relationship map should not be used as evidence that every technique occurred during CaptiveCrunch.
 
