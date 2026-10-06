@@ -14,8 +14,6 @@ This affects how the rest of the document should be read:
 
 **What this covers and what it does not:** the behaviour described here (fake CAPTCHA delivery, stealers and remote access tools, persistence) is the behaviour of the payloads in this campaign, and OpenCTI associates it with Amadey. That makes it behaviour linked to Amadey. It is not behaviour confirmed as Amadey's, because the report does not name the family.
 
-The report "StealC and Amadey: Breaking down infostealers" (June 24, 2026) is the one report in the Amadey entity's list whose title names Amadey directly. It was not analyzed in this investigation, and it is the best place to confirm or separate Amadey's own capabilities from the rest of the campaign.
-
 ---
 
 ## 1. Threat Overview
