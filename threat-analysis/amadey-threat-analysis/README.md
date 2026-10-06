@@ -1,19 +1,30 @@
 # Amadey Threat Analysis
-### Amadey and the Campaign
 
-Amadey appears in OpenCTI as a **malware entity** and is linked to the **"Disposable Domains, Durable Hosting"** campaign.
+## Scope of This Analysis
 
-However, the campaign does not clearly state that Amadey was the malware used in the attack. The campaign describes activities such as **remote access, persistence, and the use of stealers**, with several malware entities linked to the campaign.
+Amadey appears in OpenCTI as a **malware entity** (S1025) linked to the **"Disposable Domains, Durable Hosting"** report and its indicators. The report and its indicators were ingested from AlienVault with the label `amadey`, and that label is the basis of the link in OpenCTI.
 
-Therefore, the behaviour and attack patterns below are based on what OpenCTI associates with Amadey through this campaign. They should not be taken as proof that **Amadey itself was the payload used in the attack**.
+However, the report description does not name Amadey or any other malware family. It only describes **stealers and remote access tools** deployed after successful compromise. So this analysis treats the **campaign** as the thing being analyzed, and Amadey as a linked entity. The evidence collected here does not confirm that Amadey was the payload in any of the campaign's chains.
+
+This affects how the rest of the document should be read:
+
+- The behaviour in sections 5 to 8 is the behaviour of the campaign, taken from the report.
+- Every ATT&CK row in section 10.2 is marked as either stated in the report or analyst judgment.
+- The relevance to Fadurel Technologies in section 11 rests on the campaign's delivery method (ClickFix), which carries the same risk whichever malware family is delivered.
+
+**What this covers and what it does not:** the behaviour described here (fake CAPTCHA delivery, stealers and remote access tools, persistence) is the behaviour of the payloads in this campaign, and OpenCTI associates it with Amadey. That makes it behaviour linked to Amadey. It is not behaviour confirmed as Amadey's, because the report does not name the family.
+
+The report "StealC and Amadey: Breaking down infostealers" (June 24, 2026) is the one report in the Amadey entity's list whose title names Amadey directly. It was not analyzed in this investigation, and it is the best place to confirm or separate Amadey's own capabilities from the rest of the campaign.
+
+---
 
 ## 1. Threat Overview
 
-**Amadey (S1025)** was identified as the first threat in the United States threat landscape displayed in OpenCTI during this investigation.
+**Amadey (S1025)** was the first entry displayed in the United States threat chart in OpenCTI. That order is not a ranking, as explained in the [country threat landscape](../../country-threat-landscape/README.md).
 
-Amadey is a malware entity represented in OpenCTI with associated indicators, reports, malware relationships, and other intelligence that can be used to understand its activity.
+Amadey is a malware entity represented in OpenCTI with associated indicators, reports, and other intelligence.
 
-The investigation focused on the available intelligence associated with Amadey and a related report titled **"Disposable Domains, Durable Hosting"**, which provided additional context about the infrastructure and attack activity associated with the observed threat.
+The investigation focused on the report **"Disposable Domains, Durable Hosting"**, which is linked to Amadey in OpenCTI and provides detailed context about infrastructure and attack activity.
 
 ![Amadey Indicator Overview](./screenshots/amadey-indicator-overview.png)
 
@@ -23,9 +34,9 @@ The investigation focused on the available intelligence associated with Amadey a
 
 ## 2. Amadey Indicators
 
-OpenCTI contained multiple indicators associated with the Amadey investigation. These indicators included different types of observables associated with the infrastructure and activity surrounding the malware.
+OpenCTI contained multiple indicators linked to Amadey. These included domains, IP addresses, and file hashes.
 
-The available intelligence included domains, IP addresses, and other malware-related indicators that could be investigated through OpenCTI.
+In OpenCTI the indicators carry the label `amadey` along with other labels. The source is AlienVault, the marking is TLP:CLEAR, and the creation dates shown are September 24 and 25, 2026.
 
 ![Amadey Indicator List](./screenshots/amadey-indicator-list.png)
 
@@ -39,38 +50,34 @@ Individual indicators could also be selected in OpenCTI to examine additional in
 
 ---
 
-## 3. Amadey Malware and Associated Activity
+## 3. Linked Malware Entities
 
-The OpenCTI investigation also provided malware-related intelligence associated with the Amadey investigation.
-
-This allowed the investigation to move beyond the Amadey malware entity itself and examine other malware relationships represented within the available threat intelligence.
+Besides **Amadey - S1025**, OpenCTI displayed a second malware entity, **Amatera**, in the same set of related results.
 
 ![Amadey Malware Indicator](./screenshots/amadey-malware-indicator.png)
 
-*Figure: Malware-related intelligence associated with the Amadey investigation.*
+*Figure: Malware entities and indicators displayed in the Amadey results in OpenCTI.*
 
-These relationships provide additional context around the malware ecosystem and activity represented within the OpenCTI dataset.
+The campaign report describes stealers and remote access tools without naming them, so it cannot be said which of these entities, if any, was deployed in a given chain.
 
 ---
 
 ## 4. Related Reports and Intelligence
 
-OpenCTI contained multiple reports and analyses related to Amadey.
+OpenCTI listed four reports linked to Amadey, all authored by AlienVault and marked TLP:CLEAR.
 
-The related intelligence included:
-
-- **Disposable Domains, Durable Hosting**
-- **VectraRAT: An Undocumented Full-Stack MaaS**
-- **Operation STANDOFF: A Campaign Hiding C2**
-- **StealC and Amadey: Breaking Down Infostealers**
-
-These reports provided additional information that could be used to understand the infrastructure, delivery methods, malware relationships, and activity associated with the investigation.
+| Report | Date in OpenCTI |
+|---|---|
+| Disposable Domains, Durable Hosting | Sep 23, 2026 |
+| VectraRAT: An Undocumented Full-Stack MaaS | Sep 16, 2026 |
+| Operation STANDOFF: A Campaign Hiding C2 | Jul 21, 2026 |
+| StealC and Amadey: Breaking down infostealers | Jun 24, 2026 |
 
 ![Amadey Related Reports](./screenshots/amadey-related-reports.png)
 
 *Figure: Reports and analyses related to Amadey in OpenCTI.*
 
-For this investigation, **"Disposable Domains, Durable Hosting"** was selected for deeper analysis because it provided detailed information about the infrastructure and attack activity associated with the observed activity.
+**"Disposable Domains, Durable Hosting"** was selected for deeper analysis because it is the most recent of the four and gives detailed information about infrastructure and attack activity. It was not chosen because it names Amadey, which it does not.
 
 ---
 
@@ -78,11 +85,9 @@ For this investigation, **"Disposable Domains, Durable Hosting"** was selected f
 
 ### 5.1 Campaign Overview
 
-The **"Disposable Domains, Durable Hosting"** report describes multiple malicious activity chains observed over a period of approximately five months.
+The report describes **four distinct malicious chains** observed over more than five months. All four operated through the same bulletproof hosting provider, **AS202412 / OMEGATECH LTD**, registered in Seychelles.
 
-The activity involved the use of a common infrastructure provider identified as **AS202412 / OMEGATECH LTD**, registered in Seychelles.
-
-The activity showed the use of disposable domains and changing infrastructure while maintaining a relationship with the same hosting infrastructure.
+The report does not name any malware family. It states that successful compromises deployed stealers and remote access tools, with persistence mechanisms that survived system reboots.
 
 ![Disposable Domains, Durable Hosting](./screenshots/disposable-domains-durable-hosting.png)
 
@@ -92,201 +97,137 @@ The activity showed the use of disposable domains and changing infrastructure wh
 
 ### 5.2 Initial Access and Social Engineering
 
-The observed activity used **fake CAPTCHA pages** as part of the initial interaction with victims.
+All four chains began with **fake CAPTCHA pages** using the **ClickFix** technique. The page tells the victim to complete an action to prove they are human. Instead, the victim is made to paste a command into the Windows Run dialog and execute it.
 
-The fake CAPTCHA pages used a technique known as **ClickFix**, where the victim is instructed to perform an action presented as necessary to verify that they are human.
-
-Instead of performing a legitimate verification process, the victim is manipulated into copying and executing a command.
-
-The command is then executed through the Windows Run interface, allowing the malicious activity to continue on the victim's system.
-
-This makes the user an important part of the attack chain because successful execution depends on convincing the victim to follow the instructions presented by the fake CAPTCHA.
+This makes the user part of the attack chain, because successful execution depends on the victim following the instructions on the page.
 
 ---
 
 ### 5.3 Infrastructure and Disposable Domains
 
-One of the notable characteristics of the activity was the use of **disposable domains**.
+The operators used **disposable domains** with similar naming patterns, so they could swap domains while keeping the underlying infrastructure.
 
-The infrastructure used multiple domains during the observed activity, allowing the operators to change domains while maintaining elements of their underlying infrastructure.
-
-The investigation also identified the use of compromised legitimate websites and other hosting or staging mechanisms as part of the activity.
-
-The report showed that different activity chains used different staging and delivery mechanisms, including:
+The chains used different staging and delivery mechanisms:
 
 - Cloud storage
 - Disposable domains
 - Compromised legitimate websites
 - Trojanized installers
-- Blockchain-resolved command-and-control infrastructure
+- Blockchain-resolved command-and-control addresses
 
-Although the delivery and staging methods differed between activity chains, they shared infrastructure associated with **AS202412** during the observed period.
+Despite the different payloads and staging methods, every chain initiated contact through AS202412.
 
 ---
 
 ### 5.4 Expansion of Infrastructure
 
-The infrastructure associated with the activity was not limited to a single network range.
+The hosting provider grew from its initial allocations to announcing **twenty-four /24 prefixes** during the observation period.
 
-The observed provider expanded its infrastructure to include multiple **/24 prefixes** during the period covered by the report.
-
-This demonstrates how the infrastructure could change and expand while maintaining relationships with the same hosting provider.
-
-The use of disposable domains combined with changing infrastructure makes individual indicators more likely to become obsolete over time.
-
-This is important when investigating the activity because focusing on a single domain or IP address may not provide the full picture of the infrastructure.
+Combined with disposable domains, this makes individual indicators likely to go stale. Blocking a single domain or IP will not cover the infrastructure.
 
 ---
 
 ### 5.5 Malware Delivery and Post-Execution Activity
 
-The observed attack chains were associated with the delivery of different malware families, including information stealers and remote access trojans.
+When a victim followed the fake CAPTCHA instructions and ran the command, the chain moved from social engineering to payload execution. The report says successful compromises deployed stealers and remote access tools, and that persistence survived reboots.
 
-Where the victim successfully followed the instructions on the fake CAPTCHA page and executed the supplied command, the activity could progress from the initial social-engineering stage to malware execution.
-
-The observed malware activity included the deployment of stealers and RATs.
-
-The investigation notes also identified persistence mechanisms that allowed successful malware infections to survive system reboots.
-
-This means that the attack was not limited to the initial execution of the malicious command. Successful compromise could continue through subsequent malware activity on the affected system.
+The report does not describe what happened after that stage. Anything beyond initial deployment in this document is assessment, not observed activity.
 
 ---
 
 ### 5.6 Victim Interaction
 
-An important observation from the report was that not every visitor to the malicious infrastructure necessarily resulted in a successful compromise.
+The report notes that most browser contacts ended at the lure page without execution. Compromise required the victim to interact with the fake CAPTCHA and follow its instructions.
 
-Many visitors stopped at the initial lure page.
+At a high level the activity looks like this:
 
-Successful compromise required the victim to interact with the fake CAPTCHA and follow the instructions provided by the attacker-controlled page.
-
-This makes the social-engineering component an important part of the attack chain.
-
-The activity can therefore be represented at a high level as:
-
-Victim visits malicious page  
-↓  
-Fake CAPTCHA / ClickFix lure  
-↓  
-Victim is instructed to copy a command  
-↓  
-Command executed through Windows Run  
-↓  
-Malware delivery / execution  
-↓  
-Stealer or RAT activity  
-↓  
+```text
+Victim visits malicious page
+        |
+Fake CAPTCHA / ClickFix lure
+        |
+Victim is instructed to paste a command
+        |
+Command executed through Windows Run
+        |
+Payload delivery / execution
+        |
+Stealer or remote access tool
+        |
 Persistence and continued access
+```
 
 ---
 
 ## 6. Campaign Attack Chain
 
-Based on the intelligence examined during the investigation, the observed activity can be summarized into several stages.
+**Stage 1, Initial Access:** the victim reaches a malicious or compromised webpage containing a fake CAPTCHA.
 
-### Stage 1: Initial Access
+**Stage 2, Social Engineering:** the page uses ClickFix instructions to convince the victim to copy and execute a command.
 
-The victim encounters a malicious or compromised webpage containing a fake CAPTCHA.
+**Stage 3, Command Execution:** the victim runs the command through the Windows Run dialog.
 
-### Stage 2: Social Engineering
+**Stage 4, Payload Delivery and Execution:** the command leads to a payload being delivered and executed. The report describes the result as stealers or remote access tools.
 
-The fake CAPTCHA uses ClickFix-style instructions to convince the victim to copy and execute a command.
-
-### Stage 3: Command Execution
-
-The victim executes the supplied command through the Windows Run interface.
-
-### Stage 4: Payload Delivery
-
-The command allows the attack chain to progress toward the delivery or execution of malicious payloads.
-
-### Stage 5: Malware Execution
-
-The resulting activity can involve information stealers or remote access trojans.
-
-### Stage 6: Persistence
-
-Successful malware execution can establish persistence, allowing the malicious activity to continue after a system reboot.
-
-### Stage 7: Continued Activity
-
-The compromised system can then become part of the subsequent malware activity associated with information theft or remote access.
+**Stage 5, Persistence:** successful execution established persistence that survived reboots.
 
 ---
 
 ## 7. Indicators Observed
 
-The OpenCTI investigation produced multiple indicators associated with the Amadey-related intelligence.
+Indicators are defanged below. Domains and IPs came from the OpenCTI indicator list and the investigation notes.
 
-Examples of the observed infrastructure included domains and IP addresses represented within OpenCTI.
+Domains:
 
-The investigation notes included indicators such as:
+- `verico-de-id[.]beer`
+- `trunnsns[.]beer`
+- `securecab[.]fit`
+- `sdntds[.]shop`
+- `rsvpopenh[.]one`
+- `pilotkadomen[.]club`
+- `pcapps[.]my`
+- `nttdss[.]shop`
+- `kerosand[.]net`
+- `idverification-code[.]beer`
+- `id-verif-code[.]info`
+- `approvalrequest-api[.]com`
+- `gettrack[.]my`
+- `fraudtechnology[.]com`
+- `alianzeg[.]shop`
+- `ai-nexora[.]sbs`
 
-- `verico-de-id.beer`
-- `trunnsns.beer`
-- `securecab.fit`
-- `sdntds.shop`
-- `rsvpopenh.one`
-- `pilotkadomen.club`
-- `pcapps.my`
-- `nttdss.shop`
-- `kerosand.net`
-- `idverification-code.beer`
-- `id-verif-code.info`
-- `approvalrequest-api.com`
-- `gettrack.my`
-- `fraudtechnology.com`
+IP addresses:
 
-IP addresses observed in the investigation included:
+- `193[.]202[.]84[.]17`
+- `176[.]65[.]144[.]127`
 
-- `193.202.84.17`
-- `176.65.144.127`
+The OpenCTI list also contained file hashes, but the values are cut off in the screenshot, so they are not recorded here. Copy the full values from OpenCTI before using them for detection.
 
-These indicators were examined as part of the OpenCTI investigation and provide potential intelligence for understanding the infrastructure associated with the observed activity.
+These indicators are linked to Amadey through the `amadey` label. This investigation did not map each indicator to a specific chain in the campaign.
 
 ---
 
 ## 8. Infrastructure Relationship
 
-A key observation from the investigation was that multiple malicious activity chains were connected through the same underlying infrastructure provider.
+Multiple chains were connected through the same hosting provider. This does not mean every domain sat on one server. An autonomous system holds many servers, addresses, and domains.
 
-The activity should not be interpreted as meaning that every malicious domain existed on one physical server.
-
-Instead, the evidence indicates that multiple domains and activity chains shared infrastructure associated with **AS202412 / OMEGATECH LTD**.
-
-This distinction is important because a hosting provider or autonomous system can contain multiple servers, addresses, and domains.
-
-The infrastructure relationship therefore provides a broader investigative pivot than examining an individual domain in isolation.
+The evidence indicates that the chains shared infrastructure associated with **AS202412 / OMEGATECH LTD**. That makes the provider a broader pivot than any single domain.
 
 ---
 
 ## 9. Related Malware and Activity
 
-The OpenCTI relationships and associated reports provided additional context around malware observed in connection with the investigation.
+The linked intelligence connects the campaign to information stealers and remote access tools.
 
-The available intelligence linked the activity to information-stealing malware and remote access trojans.
-
-The related reports also included intelligence on **StealC**, which was specifically discussed in the report **"StealC and Amadey: Breaking Down Infostealers."**
-
-This relationship is useful because it demonstrates how OpenCTI can connect a malware entity to reports, indicators, infrastructure, and other malware-related intelligence.
+The related report "StealC and Amadey: Breaking down infostealers" discusses StealC alongside Amadey, based on its title. Its content was not analyzed here, so nothing in this document should be read as a finding from that report.
 
 ---
 
-# 10. MITRE ATT&CK Mapping
+## 10. MITRE ATT&CK Mapping
 
-This section will map the observed Amadey behaviour to the relevant **MITRE ATT&CK techniques and sub-techniques**.
+### 10.1 Broader Relationships in OpenCTI
 
-The mapping will connect the behaviours identified during the investigation to the corresponding MITRE ATT&CK attack patterns.
-
-### MITRE ATT&CK Mapping
-
-# Amadey - MITRE ATT&CK Relationship Mapping
-
-## ATT&CK Relationship Overview
-
-OpenCTI associates **Amadey - S1025** with a broad range of MITRE ATT&CK attack patterns across multiple stages of the adversary lifecycle.
-
-The OpenCTI knowledge view displayed attack patterns across:
+OpenCTI associates **Amadey - S1025** with attack patterns across many tactics:
 
 - Resource Development
 - Initial Access
@@ -303,90 +244,52 @@ The OpenCTI knowledge view displayed attack patterns across:
 - Exfiltration
 - Impact
 
-The relationships displayed in OpenCTI were reviewed and mapped below.
-
-> **Important:** An OpenCTI relationship indicates that the attack pattern is associated with the Amadey knowledge object. It should not automatically be interpreted as proof that every technique was used in every Amadey campaign. Campaign-specific claims require supporting evidence.
-
-
----
-
-## Relationship Map
+> **Important:** An OpenCTI relationship means the attack pattern is associated with the Amadey knowledge object. It does not prove every technique was used in every Amadey campaign, and it does not show anything about the Disposable Domains, Durable Hosting campaign specifically.
 
 ![Amadey MITRE ATT&CK Relationship Map](screenshots/Attack-patterns-kill-chain.png)
 
 *Figure: MITRE ATT&CK attack patterns associated with Amadey - S1025 as displayed in OpenCTI.*
+
 ---
 
-## Campaign Attack Pattern Mapping
+### 10.2 Campaign Attack Pattern Mapping
 
-The following attack patterns represent the attack chain associated with Amadey in the
-**Disposable Domains, Durable Hosting** campaign.
+The table below maps the **Disposable Domains, Durable Hosting** campaign, not Amadey. The Basis column shows whether the report states the behaviour or whether the technique is analyst judgment.
 
-The campaign used multiple malicious chains that shared associated infrastructure
-linked to **AS202412**. The domains formed part of this malicious infrastructure
-and were used to direct victims into the subsequent attack chain.
+| Attack Stage | ATT&CK ID | Attack Pattern | Evidence from the report | Basis |
+|---|---|---|---|---|
+| Resource Development | T1583.001 | Acquire Infrastructure: Domains | Disposable domains with similar naming patterns. | Stated in report |
+| Resource Development | T1608.004 | Stage Capabilities: Drive-by Target | Fake CAPTCHA pages and compromised legitimate websites used to put the lure in front of victims. | Analyst judgment |
+| Execution | T1204.004 | User Execution: Malicious Copy and Paste | Victims instructed to paste commands into Windows Run dialogs. | Stated in report |
+| Command and Control | T1568 | Dynamic Resolution | Blockchain-resolved C2 addresses in some chains. The technique choice is mine. | Analyst judgment |
+| Command and Control | T1219 | Remote Access Software | Successful compromises deployed remote access tools. | Stated in report |
+| Persistence | T1547 | Boot or Logon Autostart Execution | Persistence survived reboots. The mechanism is not named, so this is only the broad technique family. | Analyst judgment |
+| Exfiltration | T1041 | Exfiltration Over C2 Channel | Stealers were deployed, but the report does not say how data left the system. | Analyst inference, not stated |
 
-| Attack Stage | MITRE ATT&CK ID | Attack Pattern | Relationship to Observed Campaign |
-|---|---|---|---|
-| Infrastructure Acquisition | T1583.001 | Acquire Infrastructure: Domains | The campaign used disposable/malicious domains as part of the attacker-controlled infrastructure associated with AS202412. |
-| Web Infrastructure | T1608.004 | Stage Capabilities: Drive-by Target | The attacker prepared malicious web resources through which victims were directed into the attack chain. |
-| Initial Access / Victim Interaction | T1204.004 | User Execution: Malicious Copy and Paste | The fake CAPTCHA/ClickFix page instructed victims to copy and paste a malicious command. |
-| Command and Control | T1568 | Dynamic Resolution | Attacker infrastructure was used to support the resolution or location of infrastructure associated with C2 activity. |
-| Remote Access | T1219 | Remote Access Software | Remote-access capability was associated with the observed malware activity. |
-| Persistence | T1547 | Boot or Logon Autostart Execution | The malware demonstrated persistence that allowed it to remain active after system restart. |
-| Exfiltration | T1041 | Exfiltration Over C2 Channel | Relevant where collected information was transmitted through the C2 channel. |
+```text
+Disposable Domains, Durable Hosting
+(linked to Amadey in OpenCTI, payload not confirmed)
+                |
+        T1583.001 Acquire Infrastructure: Domains
+                |
+        AS202412 hosting
+                |
+        Victim visits page
+                |
+        Fake CAPTCHA / ClickFix
+                |
+        T1204.004 Malicious Copy and Paste
+                |
+        Victim executes command
+                |
+        Stealer or remote access tool
+                |
+        Persistence (T1547, broad family)
+```
 
-                    AMADEY - S1025
-                          |
-                          ↓
-          Disposable Domains, Durable Hosting
-                          |
-                          ↓
-              Attacker Infrastructure
-                          |
-                          ↓
-                     T1583.001
-                 Acquire Infrastructure:
-                       Domains
-                          |
-                          ↓
-                 Malicious / Disposable
-                       Domains
-                          |
-                          ↓
-                     AS202412
-             Associated Infrastructure
-                          |
-                          ↓
-                  Victim visits page
-                          |
-                          ↓
-                   Fake CAPTCHA
-                     / ClickFix
-                          |
-                          ↓
-                     T1204.004
-             Malicious Copy and Paste
-                          |
-                          ↓
-                 Victim executes command
-                          |
-                          ↓
-                       Malware
-                          |
-                          ↓
-                         C2
-                          |
-                          ↓
-                 Persistence / Access
-                          |
-                          ↓
-                    Exfiltration
+---
 
-# 11. Relevance of Amadey to Fadurel Technologies
-# Amadey - Relevance to Fadurel Technologies
-
-## Fadurel Technologies
+## 11. Relevance to Fadurel Technologies
 
 Fadurel Technologies:
 
@@ -396,137 +299,73 @@ Fadurel Technologies:
 - Does advertising.
 - Owns a streaming platform.
 
----
+### Why the campaign matters
 
-## How Does Amadey Relate to Fadurel Technologies?
+The delivery method does not rely on a software vulnerability. An employee browsing from a company endpoint lands on a page with a fake CAPTCHA, follows the instructions, and runs the pasted command through Windows Run. That executes code on the endpoint with the employee's own privileges.
 
-So, how does Amadey relate to Fadurel Technologies?
+This risk is the same whichever malware family is delivered, so it holds even though Amadey as the payload is not confirmed.
 
-Or how can Amadey pose a threat to Fadurel Technologies?
+### Possible progression
 
-It is established from the CTI analysis that **Amadey itself is a malware**.
+If the command succeeds and a stealer or remote access tool is installed, as the report describes for successful compromises, the attacker could reach the endpoint and anything the employee is signed in to. Possible next steps are credential and session theft, identity compromise, lateral movement, and data theft.
 
-Several campaigns are associated with Amadey.
+The report does not document those later steps. They are assessed possibilities, not observed activity.
 
----
+### Potential impact
 
-## Infrastructure Associated with Amadey
+Depending on what the compromised user or endpoint can reach, the impact could include:
 
-The infrastructure associated with Amadey is **AS202412**.
+- Loss of availability on affected endpoints if malware spreads.
+- Exposure of customer data if the attacker reaches systems that hold it.
+- Identity compromise if employee credentials or sessions are stolen.
+- Disruption to retail or streaming services if the compromised access extends to them.
+- Compromise of the online website if the compromised access extends to it.
 
-If the infrastructure associated with Amadey manages to compromise Fadurel Technologies' endpoints that support its online portal business, this could be a major catastrophe.
+### Fadurel Technologies threat scenario
 
-Imagine Fadurel Technologies employees surfing the internet on company endpoints. While on a website that uses the **ClickFix technique** to deceive the employee, if the employee falls for the trap and runs the command as instructed by the CAPTCHA on their endpoint, the device could become compromised.
-
-This could lead to endpoint compromise.
-
----
-
-## Possible Attack Progression
-
-The attacker might then try to download malware onto the endpoint after acquiring access.
-
-Further remote access might occur.
-
-Identity might be compromised.
-
-Lateral movement might occur.
-
-Exfiltration of confidential data might also occur.
-
----
-
-## Potential Impact on Fadurel Technologies
-
-So, this might result in:
-
-- Lack of availability on Fadurel Technologies' endpoints if the malware spreads.
-- Data exfiltration, which could compromise the confidentiality of customer data.
-- Identity compromise if the attacker gains access to employees' login credentials.
-- Fadurel Technologies' streaming platforms might become unavailable.
-- The online website could become compromised.
-
----
-
-## Attack Activity and Attacker Behaviour
-
-The events describe each attack activity or attacker behaviour observed during the investigation.
-
-The attack activity can therefore progress from the initial compromise of an endpoint to further access, identity compromise, lateral movement, and potential exfiltration of confidential data.
+```text
+Fadurel Technologies employee
+            |
+    Browses the internet
+            |
+   Malicious website, fake CAPTCHA (ClickFix)
+            |
+   Employee runs the pasted command
+            |
+      Endpoint compromise
+            |
+   Stealer or remote access tool installed
+            |
+      +-----+------+
+      |            |
+      v            v
+ Credential /   Remote
+ session theft  access
+      |            |
+      +-----+------+
+            |
+            v
+    Lateral movement (assessed, not observed)
+            |
+            v
+    Data theft (assessed, not observed)
+```
 
 ---
-## Fadurel Technologies Threat Scenario
 
-The potential scenario involving Fadurel Technologies can be summarized as:
+## 12. Investigation Summary
 
-    Fadurel Technologies Employee
-                |
-                v
-         Internet Browsing
-                |
-                v
-           Malicious Website
-                |
-                v
-           ClickFix Technique
-                |
-                v
-           Fake CAPTCHA
-                |
-                v
-     Employee Runs the Command
-                |
-                v
-         Endpoint Compromise
-                |
-                v
-          Malware Download
-                |
-                v
-           Further Access
-                |
-          +-----+-----+
-          |           |
-          v           v
-       Identity    Remote
-      Compromise   Access
-          |           |
-          +-----+-----+
-                |
-                v
-          Lateral Movement
-                |
-                v
-         Data Exfiltration
-                |
-                v
-      Confidential Data
-          Compromise
+This investigation assessed the threat landscape for the United States, the headquarters country of **Fadurel Technologies**, using **OpenCTI**, **AlienVault OTX**, and **MITRE ATT&CK**.
 
+**Amadey - S1025** was the first entry displayed for the United States. The display order is not a ranking, so it was selected by position and then checked for enough linked intelligence.
 
- ## 12. Investigation Summary
+The investigation focused on the **Disposable Domains, Durable Hosting** report, which OpenCTI links to Amadey through the `amadey` label. The report describes four chains using fake CAPTCHA pages and ClickFix, sharing infrastructure at AS202412 / OMEGATECH LTD, and deploying stealers and remote access tools with persistence. It does not name Amadey or any other malware family, so this document analyzes the campaign and does not confirm Amadey as the payload.
 
-This investigation was conducted to assess the cyber threat landscape associated with the country where **Fadurel Technologies** is headquartered and to identify threats requiring deeper analysis.
+The campaign was mapped to ATT&CK, with each row marked as stated in the report or analyst judgment. The broader Amadey relationships in OpenCTI are kept separate from the campaign mapping.
 
-Fadurel Technologies operates in the technology sector, with activities including online retail, third-party sellers, cloud computing, advertising, and streaming services. The organization's headquarters is located in the **United States of America**.
+For Fadurel Technologies, the main concern is endpoint compromise through ClickFix, which could lead to stolen credentials, remote access, and further compromise. Those later steps are assessed possibilities, not observed in the report.
 
-**OpenCTI** was used as the primary threat intelligence platform, with intelligence from **AlienVault OTX** and **MITRE ATT&CK** used to support the investigation.
-
-The United States was selected as the country of focus in OpenCTI. The resulting threat landscape identified **Amadey - S1025** and **UNC2452** as the first two threats displayed in the OpenCTI results and therefore selected for further investigation.
-
-The investigation then focused on **Amadey - S1025** and examined its associated reports, campaigns, indicators, malware relationships, infrastructure, and MITRE ATT&CK attack patterns.
-
-One of the campaigns investigated was **Disposable Domains, Durable Hosting**. The campaign involved multiple malicious chains that shared associated infrastructure linked to **AS202412**. The activity included malicious and disposable domains, fake CAPTCHA pages, and the **ClickFix** technique, in which victims were instructed to copy and paste commands.
-
-The investigation mapped the observed campaign activity to relevant MITRE ATT&CK attack patterns, including infrastructure acquisition, web infrastructure staging, malicious copy-and-paste execution, dynamic resolution, remote-access activity, persistence, and potential exfiltration.
-
-OpenCTI also showed a broader set of MITRE ATT&CK relationships associated with Amadey. These relationships were documented separately from the campaign-specific mapping to distinguish the broader Amadey threat profile from the techniques specifically associated with the investigated campaign.
-
-The investigation also assessed the potential relevance of Amadey to Fadurel Technologies. A successful compromise of an employee endpoint through a ClickFix-style attack could potentially lead to further malware activity, remote access, identity compromise, lateral movement, and exfiltration of confidential information.
-
-Potential consequences identified for Fadurel Technologies include endpoint availability issues, compromise of customer data confidentiality, identity compromise, disruption of streaming services, and compromise of online business infrastructure.
-
-Overall, the investigation established a relationship between **Amadey, its associated infrastructure, the Disposable Domains, Durable Hosting campaign, its indicators and malware relationships, and relevant MITRE ATT&CK attack patterns**, while also assessing how the observed activity could potentially affect Fadurel Technologies.
+**Limitations:** the report "StealC and Amadey: Breaking down infostealers" was not analyzed, so the behaviour linked to Amadey here is not confirmed as specific to Amadey. Indicators were not mapped to individual chains, and file hash values were not recorded in full.
 
 
 
