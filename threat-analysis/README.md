@@ -2,9 +2,9 @@
 
 This section contains the detailed analysis of the two threats selected during the country-level threat assessment.
 
-The threats were selected from the threat landscape observed in OpenCTI for the **United States**, the country where Fadurel Technologies is headquartered.
+The threats were selected from the threat landscape observed in OpenCTI for the **United States**, the country where Fadurel Technologies is headquartered. OpenCTI did not rank them, so they were selected as the first two entries displayed and then checked for enough linked intelligence. See the [Country Threat Landscape](../country-threat-landscape/README.md) for details and limits.
 
-The analysis focuses on understanding the threats, their associated intelligence, campaigns, indicators, attack patterns, and potential relevance to the organization.
+The analysis focuses on the threats, their associated intelligence, campaigns, indicators, attack patterns, and potential relevance to the organization.
 
 ---
 
@@ -14,14 +14,14 @@ The analysis focuses on understanding the threats, their associated intelligence
 
 Amadey was identified in OpenCTI as a malware entity and selected for further investigation.
 
+OpenCTI links Amadey to the "Disposable Domains, Durable Hosting" report, but that report does not name Amadey or any other malware family. The analysis is therefore centered on the campaign, with Amadey as the linked entity, and it does not confirm Amadey as the payload.
+
 The analysis covers:
 
-- Amadey-related intelligence
+- The campaign linked to Amadey
 - Associated indicators
-- Campaign intelligence
-- Relevant threat behaviour
-- Attack patterns
-- MITRE ATT&CK relationships
+- Campaign behaviour and attack chain
+- MITRE ATT&CK mapping, separated into broader relationships and campaign-specific techniques
 - Potential impact on the organization
 
 **[View Amadey Threat Analysis](amadey-threat-analysis/README.md)**
@@ -30,17 +30,16 @@ The analysis covers:
 
 ### 2. UNC2452
 
-UNC2452 was identified in OpenCTI as a threat actor and selected for further investigation.
+UNC2452 was identified in OpenCTI as an intrusion set and selected for further investigation.
 
 The analysis covers:
 
-- Threat actor intelligence
-- Associated campaigns
-- Malware relationships
-- Indicators
-- Threat behaviour
-- Attack patterns
-- MITRE ATT&CK relationships
+- Actor profile and the basis of the attribution
+- The CaptiveCrunch campaign
+- Associated malware
+- Victims and targeting, as far as the report describes them
+- Indicators, including their validity dates
+- MITRE ATT&CK mapping, separated into broader relationships and campaign-specific techniques
 - Potential impact on the organization
 
 **[View UNC2452 Threat Analysis](UNC2452-threat-analysis/README.md)**
@@ -62,11 +61,11 @@ The analysis followed these areas:
 
 3. **Behaviour and Attack Patterns**
    - Examine the behaviours and attack patterns associated with the threat.
-   - Where possible, relate the observed behaviour to MITRE ATT&CK techniques.
+   - Relate the behaviour to MITRE ATT&CK techniques, and mark whether each mapping is stated in the source report or is analyst judgment.
 
 4. **Campaign Analysis**
-   - Review relevant campaigns associated with the threat.
-   - Identify how the threat was reported to operate within those campaigns.
+   - Review the campaign associated with the threat.
+   - Identify how the threat was reported to operate within that campaign.
 
 5. **Organizational Relevance**
    - Consider how the observed behaviour could affect Fadurel Technologies.
